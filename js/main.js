@@ -41,4 +41,34 @@ console.log(altre);
 
 
 
-//
+
+// Crea un array di oggetti che rappresentino delle persone
+//ogni persona ha un nome, cognome, età
+
+const persone = [
+    {Nome: 'Simone', cognome: 'Icardi', età: 40},
+    {Nome: 'Alessandro', cognome: 'Franco', età: 30},
+    {Nome: 'Arianna', cognome: 'Santus', età: 26},
+    {Nome: 'Adele', cognome: 'Gandelli', età: 50},
+    {Nome: 'Felice', cognome: 'Santus', età: 55},
+    {Nome: 'Ludovico', cognome: 'Pieralli', età: 7},
+    {Nome: 'Pietro', cognome: 'Santin', età: 3},
+    {Nome: 'Germano', cognome: 'Tedesco', età: 17},
+];
+
+
+// Crea per ogni persona un nuovo array che dica se la persona può guidare o no (inserendo nome e cognome e se può guidare in base all'età). Esempio 'Mario Rossi non può guidare perché ha 10 anni'; 'Simone Icardi può guidare perché ha 40 anni'.
+
+
+//persone.forEach ((persona) => {
+//    console.log(`${persona.Nome} ${persona.cognome} ha ${persona.età} anni`);
+//});
+
+
+const maggiorenni = persone.filter ((maggiorenne)=>{
+    if (maggiorenne.età >= 18){
+        return (console.log(`${maggiorenne.Nome} ${maggiorenne.cognome} può guidare perché ha più di 18 anni`));
+    }
+    return (console.log(`${maggiorenne.Nome} ${maggiorenne.cognome} non può guidare perché ha meno di 18 anni`));
+});
+
