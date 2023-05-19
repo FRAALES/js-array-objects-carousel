@@ -1,70 +1,69 @@
-//Crea un array composto da 10 automobili
-//Ogni oggetto/automobile avrà le seguenti Proprietà--> marca, modello, alimentazione (benzina, diesel, gpl, metano, elettrico)
+// Dato un array di oggetti letterali con:
+// - url dell’immagine
+// - titolo
+// - descrizione
 
-const automobili = [
-    {Marca: 'Opel', Modello: 'Agila', alimentazione: 'benzina'},
-    {Marca: 'Opel', Modello: 'Mokka', alimentazione: 'gpl'},
-    {Marca: 'Fiat', Modello: 'Panda', alimentazione: 'metano'},
-    {Marca: 'Tesla', Modello: 'Turbo', alimentazione: 'elettrico'},
-    {Marca: 'Mercedes', Modello: 'Classe A', alimentazione: 'diesel'},
-    {Marca: 'Fiat', Modello: 'Multipla', alimentazione: 'benzina'},
-    {Marca: 'Mercedes', Modello: 'GLA', alimentazione: 'benzina'},
-    {Marca: 'Alfa Romeo', Modello: 'GT', alimentazione: 'diesel'},
-    {Marca: 'Nissan', Modello: 'Qasqai', alimentazione: 'diesel'},
-    {Marca: 'Citroen', Modello: 'C3', alimentazione: 'benzina'},
+const images = [
+    {
+        image: 'images/img/01.webp',
+        title: "Marvel\\'s Spiderman Miles Morale",
+        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.'
+    }, 
+    {
+        image: 'images/img/02.webp',
+        title: 'Ratchet & Clank: Rift Apart',
+        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+    }, {
+        image: 'images/img/03.webp',
+        title: 'Fortnite',
+        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+    }, {
+        image: 'images/img/04.webp',
+        title: 'Stray',
+        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+    }, 
+    {
+        image: 'images/img/05.webp',
+        title: "Marvel's Avengers",
+        text: "Marvel\\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay."
+    }
 ];
 
 
-//Dividi le auto in 3 array separati:
-//Nel primo array solo le auto a benzina
+// Creare un carosello come nella foto allegata.
 
-const benzina = automobili.filter(automobili => automobili.alimentazione==="benzina");
-
-console.log(benzina);
+// Milestone 0:
+// Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l’immagine grande in modo da poter stilare lo slider.
 
 
+//Prendo i container
+const container = document.getElementById ('container');
+const containerSchede = document.getElementById('container-schede');
 
-//Nel secondo solo le auto diesel
+//ciclo gli oggetti nella pagina
 
-const diesel = automobili.filter(automobili => automobili.alimentazione === "diesel");
+images.forEach(element =>{
 
-console.log(diesel);
+    //popolo schede
+    const scheda = 
+        `
+        <div class="scheda">
+            <img src="${element.image}" alt="img">
+        </div>
+        <div class="txt">
+            <h5>${element.title}</h5>
+            <p>${element.text}</p>
+            </div>
+        </div>
+        `;
+    containerSchede.innerHTML += scheda;
 
-
-//Nel terzo tutte le altre auto
-const altre = automobili.filter(automobili => (automobili.alimentazione !== "diesel") && (automobili.alimentazione !== "benzina"));
-
-console.log(altre);
-
-//Stampa in console i 3 array
-
-
-
-
-
-// Crea un array di oggetti che rappresentino delle persone
-//ogni persona ha un nome, cognome, età
-
-const persone = [
-    {Nome: 'Simone', cognome: 'Icardi', età: 40},
-    {Nome: 'Alessandro', cognome: 'Franco', età: 30},
-    {Nome: 'Arianna', cognome: 'Santus', età: 26},
-    {Nome: 'Adele', cognome: 'Gandelli', età: 50},
-    {Nome: 'Felice', cognome: 'Santus', età: 55},
-    {Nome: 'Ludovico', cognome: 'Pieralli', età: 7},
-    {Nome: 'Pietro', cognome: 'Santin', età: 3},
-    {Nome: 'Germano', cognome: 'Tedesco', età: 17},
-];
-
-
-// Crea per ogni persona un nuovo array che dica se la persona può guidare o no (inserendo nome e cognome e se può guidare in base all'età). Esempio 'Mario Rossi non può guidare perché ha 10 anni'; 'Simone Icardi può guidare perché ha 40 anni'.
-
-const guidatori = persone.map ((individuo) =>{
-{
-    if (individuo.età >= 18)
-    return `${individuo.Nome} ${individuo.cognome} può guidare` ;
-} 
-return `${individuo.Nome} ${individuo.cognome} non può guidare` ;
 });
-console.log(guidatori);
 
+
+// Milestone 1:
+// Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
+// Al click dell’utente sulle frecce verso sopra e sotto, l’immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
+// Milestone 2:
+// Aggiungere il **ciclo infinito** del carosello.
+// Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.

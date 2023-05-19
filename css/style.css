@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#container{
+    height: 100vh;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.scheda{
+    display: flex;
+
+}
+
+
+.immagine{
+    height: 300px;
+    width: 100px;
+}
